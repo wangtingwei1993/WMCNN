@@ -47,16 +47,10 @@ im_bic = shave(uint8(im_bic * 255), [up_scale, up_scale]);
 %% compute PSNR
 psnr_bic = compute_psnr(im_gnd, im_bic);
 psnr_srcnn = compute_psnr(im_gnd, im_h);
-ssim_bic = ssim(im_gnd, im_bic);
-ssim_srcnn = ssim(im_gnd, im_h);
 
 %% show results
 fprintf('PSNR for Bicubic Interpolation: %f dB\n', psnr_bic);
-fprintf('SSIM for Bicubic Interpolation: %f\n', ssim_bic);
 fprintf('PSNR for SRCNN Reconstruction: %f dB\n', psnr_srcnn);
-fprintf('SSIM for SRCNN Reconstruction: %f\n', ssim_srcnn);
-
-
 
 figure, imshow(im_bic); title('Bicubic Interpolation');
 figure, imshow(im_h); title('WMCNN Reconstruction');
